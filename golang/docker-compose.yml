@@ -1,0 +1,8 @@
+version: "2"
+services:
+    golang:
+      image: golang:1.12.6-alpine3.10
+      build: Dockerfile
+      restart: always
+      ports:
+        - 8001:8001

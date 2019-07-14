@@ -1,0 +1,32 @@
+version: "2"
+services:
+  kafka:
+    image: wurstmeister/kafka
+    restart: always
+    ports:
+      - 9092:9092
+    volumes:
+      - ./kafka/config:/opt/kafka/config
+      - ./kafka/script:/opt/script
+    external_links:
+      - zookeeper
+    environment:
+      KAFKA_LISTENERS: PLAINTEXT://127.0.0.1:9092
+      KAFKA_BROKER_ID: "1"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181 
+    networks:
+      - monitor
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    restart: always
+    # ports:
+      # - 2181:2181
+    volumes:
+      - ./zookeeper/config:/opt/zookeeper-3.4.13/conf
+    networks:
+      - monitor
+
+networks:
+  monitor:
+    driver: bridge

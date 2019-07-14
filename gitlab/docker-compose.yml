@@ -1,0 +1,19 @@
+version: "2"
+services:
+    gitlab:
+      image: gitlab/gitlab-ce
+      restart: always
+      hostname: 'gitlab.company.com'
+      environment:
+        TZ: 'Asia/Shanghai'
+        GITLAB_OMNIBUS_CONFIG: |
+          external_url 'http://gitlab.company.com:8200'
+           gitlab_rails['gitlab_shell_ssh_port'] = 8202
+      ports:
+        - 8200:8200
+        - '8202:22'
+        - 8003:443
+      volumes:
+        - ./config:/etc/gitlab
+        - ./data:/var/opt/gitlab
+        - ./logs:/var/log/gitlab

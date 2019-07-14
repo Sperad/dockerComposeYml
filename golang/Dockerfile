@@ -1,0 +1,3 @@
+
+
+WORKDIR: /go/src/app

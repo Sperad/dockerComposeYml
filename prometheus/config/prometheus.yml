@@ -1,0 +1,28 @@
+# my global config
+global:
+  scrape_interval:     15s # 抓取应用程序数据的间隔 Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # 评估规则的频率 Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets: ['192.168.0.104:9002']
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  - "rules/node.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'node-mac'
+    static_configs: # metrics_path defaults to '/metrics'
+    - targets: ['192.168.0.103:9101'] # scheme defaults to 'http'.
+
+  - job_name: 'node-windons'
+    static_configs: # metrics_path defaults to '/metrics'
+    - targets: ['192.168.0.104:9102'] # scheme defaults to 'http'.

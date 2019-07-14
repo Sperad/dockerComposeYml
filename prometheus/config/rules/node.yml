@@ -1,0 +1,17 @@
+groups:
+- name: example-rule-record
+  rules:
+    - record: job:promhttp_metric_handler_requests_total:sum
+      expr: sum(promhttp_metric_handler_requests_total) by (job)
+
+- name: alertname
+  rules:
+    - alert: InstanceDown
+      expr: up == 0
+      for: 1m
+      labels:
+        severity: page
+      annotations:
+        summary: "Instance {{ $labels.instance }} down"
+        description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 5 minutes."
+

@@ -1,7 +1,7 @@
 
-CREATE DATABASE  `ucenter`;
+CREATE DATABASE  `iuser` CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-USE `ucenter`;
+USE `iuser`;
 
 DROP TABLE IF EXISTS `t_organ`;
 CREATE TABLE `t_organ` (
@@ -140,3 +140,6 @@ INSERT INTO `t_user` (`id`, `organ_code`, `name`, `pwd`, `salt`, `mobile`, `emai
 VALUES
   ('98DD26101A2848F68C8E08B6DC49BDF6', '346', '1ef', '453ecd595f6b6ee3d87f0fce849f6a33', 'Mtt6', NULL, NULL, '2019-06-24 22:32:05.651000', '2019-06-24 22:32:05.651000', 0),
   ('DD4BB6815ADF4403BF7E98DD2237C339', '34645345', 'ed2323', 'c83c587ff79f1a527e43fae29aa0484e', '7B9A', '1311111', 'sperad@qq.com', '2019-06-24 22:32:30.785000', '2019-06-24 23:36:27.894000', 0);
+
+
+

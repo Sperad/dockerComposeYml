@@ -30,6 +30,16 @@ services:
     networks:
       - monitor
 
+  # elasticsearch_exporter:
+  #   image: justwatch/elasticsearch_exporter
+  #   command:
+  #     - '-es.uri=http://elasticsearch:9200'
+  #   restart: always
+  #   ports:
+  #     - "127.0.0.1:9108:9108"
+  #   networks:
+  #     - monitor
+
 networks:
   monitor:
     driver: bridge

@@ -6,8 +6,10 @@
 | golang | - | - | 不可用 |
 | redis | - | - | 不可用 |
 | nginx | - | - | 不可用 |
-| kafak  | 9200 | 9092 | 可用 |
-| mysql  | 9306 | 3306 | 可用 |
-| prometheus-server |  9001 | 9090 | 可用 |
-| prometheus-alertmanager | 9092 | 9093 | 可用 |
-| prometheus-node | 9102 | 9100 | 可用 |
+| elasticsearch | - | 9200/9300 | 不可用 |
+| kafka  | - | 9092 | 不可用 |
+| mysql  | - | 3306 | 不可用 |
+| prometheus-server |  - | 9090 | 不可用 |
+| prometheus-alertmanager | - | 9093 | 不可用 |
+| prometheus-node | - | 9100 | 不可用 |
+| elasticsearch_exporter | - | 9108 | 不可用 |

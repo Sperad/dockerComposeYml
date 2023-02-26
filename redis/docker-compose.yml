@@ -8,3 +8,5 @@ services:
       - 6379:6379
     volumes:
       - ./conf/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./data/single:/data
+      - ./log/single:/home/log

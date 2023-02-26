@@ -1,0 +1,12 @@
+version: "2"
+services:
+  mysql:
+    image: ngixn
+    restart: always
+    volumes:
+      - "./conf/conf.d:/etc/nginx/conf.d/"
+    ports:
+      - 9306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+

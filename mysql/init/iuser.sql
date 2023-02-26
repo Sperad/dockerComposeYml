@@ -81,9 +81,7 @@ CREATE TABLE `t_user_menu` (
   `role_id` char(32) NOT NULL COMMENT '角色id',
   `resource_id` text COMMENT '用户拥有的资源列表',
   `create_time` datetime(6) NOT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `uid` (`uid`),
-  KEY `idx_createtime` (`create_time`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户权限表';
 
 DROP TABLE IF EXISTS `t_user_session`;
@@ -98,6 +96,16 @@ CREATE TABLE `t_login` (
   KEY `idx_uid` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户登陆会话表';
 
+DROP TABLE IF EXISTS `t_organ_tree`;
+CREATE TABLE `t_organ_tree` (
+  `id` int(11) NOT NULL COMMENT '自增ID',
+  `orgcode` char(32) NOT NULL COMMENT '机构号',
+  `orgcode_p` char(32) NOT NULL COMMENT '父级机构号',
+  `create_time` datetime(6) NOT NULL COMMENT '创建时间',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否删除',
+  PRIMARY KEY (`id`),
+  KEY `idx_productcode` (`product_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='资源表';
 
 DROP TABLE IF EXISTS `t_captcha`;
 CREATE TABLE `t_captcha` (

@@ -1,0 +1,44 @@
+version: "2"
+services:
+  redis-master:
+    image: redis
+    container_name: redis-master
+    restart: always
+    command: redis-server /usr/local/etc/redis/redis-master.conf
+    ports:
+      - 6380:6379
+    volumes:
+      - ./conf/slave:/usr/local/etc/redis
+    networks:
+      - redis_net
+  redis-slave-1:
+    image: redis
+    container_name: redis-slave-1
+    restart: always
+    command: redis-server /usr/local/etc/redis/redis-slave-1.conf
+    ports:
+      - 6381:6379
+    volumes:
+      - ./conf/slave:/usr/local/etc/redis
+    networks:
+      - redis_net
+  redis-slave-2:
+    image: redis
+    container_name: redis-slave-2
+    restart: always
+    command: redis-server /usr/local/etc/redis/redis-slave-2.conf
+    ports:
+      - 6382:6379
+    volumes:
+      - ./conf/slave:/usr/local/etc/redis
+    networks:
+      - redis_net
+
+networks:
+  redis_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.21.0.0/16
+          gateway: 172.21.0.1

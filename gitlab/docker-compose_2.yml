@@ -1,0 +1,11 @@
+version: '2'
+services:
+  gitlab-runnerJ:
+    image: sperad/gitlan-runner:v1
+  gitlab-ceJ:
+    image: sperad/gitlan-ce:v1
+    hostname: localhost
+    ports:
+      - 1980:80/tcp
+      - 1982:22/tcp
+      - 1983:443/tcp

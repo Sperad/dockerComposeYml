@@ -1,0 +1,9 @@
+version: '2'
+services:
+  vueJ:
+    image: ebiven/vue-cli
+    command: npm install
+    volumes:
+    #  - /Users/sperad/Documents/G7/project/electric_jd:/code
+    ports:
+      - "8080:8080"
